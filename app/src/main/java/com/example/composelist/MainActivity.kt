@@ -40,9 +40,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainContent() {
-    MovieList(listOf(Movie("SpiderMan","https://picsum.photos/200"),
-        Movie("Hulk","https://picsum.photos/200")
-    ))
+    MovieList(Movie.fetchMoviesList())
 }
 
 
