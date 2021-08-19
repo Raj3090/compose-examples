@@ -3,8 +3,10 @@ package com.example.composelist
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.composelist.data.MovieRepository
 import com.example.composelist.data.MovieRepositoryImpl
+import kotlinx.coroutines.launch
 
 class MoviesViewModel :ViewModel(){
 
@@ -17,8 +19,12 @@ class MoviesViewModel :ViewModel(){
 
     private fun fetchMovies(){
         val moviesRepository:MovieRepository=MovieRepositoryImpl()
-        val list= moviesRepository.fetchMoviesList()
-        _movies.value=list
+
+        viewModelScope.launch {
+            val list= moviesRepository.fetchMoviesList()
+            _movies.value=list
+        }
+
     }
 
 }

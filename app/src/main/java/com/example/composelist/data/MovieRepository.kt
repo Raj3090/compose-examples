@@ -4,5 +4,5 @@ import com.example.composelist.Movie
 
 interface MovieRepository {
 
-    fun fetchMoviesList():List<Movie>
+    suspend fun fetchMoviesList():List<Movie>
 }
