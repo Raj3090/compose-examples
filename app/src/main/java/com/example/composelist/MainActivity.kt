@@ -1,8 +1,11 @@
 package com.example.composelist
 
+import android.graphics.drawable.shapes.Shape
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -73,6 +76,10 @@ fun MovieRow(movie: Movie) {
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .fillMaxSize(0.5f)
+                    .clip(CircleShape)
+                    .clickable {
+//                        Toast.makeText(this,"image  clicked",Toast.LENGTH_SHORT)
+                    }
                     .clip(CircleShape)
             )
             Text(text = movie.name,color = Color.White,textAlign = TextAlign.Center)
